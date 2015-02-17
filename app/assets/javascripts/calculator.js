@@ -80,9 +80,14 @@ window.onload = function (){
       else {
         input.innerHTML += btnVal;
       }
-      
+
+      // Submit the input to the server
+      $.post("perform_action/", function(data){
+        $( ".screen" ).html( input.innerHTML );
+      });
+
       // prevent page jumps
       e.preventDefault();
-    } 
+    };
   }
- }
+ };
