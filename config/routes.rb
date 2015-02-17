@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
+  root :to => redirect('/calc/show')
+  get 'calc/show' => 'calculator#show'
+  post 'calc/perform_action' => 'calculator#perform_action'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
