@@ -82,9 +82,7 @@ window.onload = function (){
       }
 
       // Submit the input to the server
-      $.post("perform_action/", function(data){
-        $( ".screen" ).html( input.innerHTML );
-      });
+      $.post("perform_action/", { calc_value: input.innerHTML });
 
       // prevent page jumps
       e.preventDefault();

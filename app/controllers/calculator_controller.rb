@@ -11,10 +11,10 @@ class CalculatorController < ApplicationController
   #
   # 
   def perform_action
-    binding.pry
-    # Store the new value in redis
-    $redis.set(CURRENT_VALUE_KEY, params)
 
+    # Store the new value in redis
+    $redis.set(CURRENT_VALUE_KEY, params["calc_value"])
+    @message = (params["calc_value"])
   end
 
   #

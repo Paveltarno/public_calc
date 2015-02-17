@@ -1,7 +1,7 @@
 // Creates a connection to the faye messaging server
 $(function() {
-  var faye = new Faye.Client("<%= "#{Rails.application.secrets.faye_url}.js" %>");
-  faye.subscribe("calc/screen_changed", function(data) {
-    $( ".screen" ).html(data);
+  var faye = new Faye.Client("<%= Rails.application.secrets.faye_url %>");
+  faye.subscribe("/calc/broadcast", function(data) {
+    eval(data);
   });
 });
