@@ -3,6 +3,7 @@ class CalculatorController < ApplicationController
   CURRENT_VALUE_KEY = "calc_current_value"
 
   def show
+    @curr_value = $redis.get(CURRENT_VALUE_KEY)
   end
 
   #
@@ -15,14 +16,6 @@ class CalculatorController < ApplicationController
     # Store the new value in redis
     $redis.set(CURRENT_VALUE_KEY, params["calc_value"])
     @message = (params["calc_value"])
-  end
-
-  #
-  # The callback function JS clients query
-  # to get the current calculator value
-  #
-  # 
-  def screen_changed
   end
 
 end

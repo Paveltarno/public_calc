@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   root :to => redirect('/calc/show')
   get 'calc/show' => 'calculator#show'
-  get 'calc/screen_changed' => 'calculator#screen_changed'
   post 'calc/perform_action' => 'calculator#perform_action'
 
   # Example of regular route:
